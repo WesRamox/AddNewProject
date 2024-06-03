@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Projetos portfolio</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <form id="form" action="http://localhost:3000/projects" method="post">
+      <label for="name">Project name</label>
+      <input type="text" name="name" id="name">
+
+      <label for="description">Project description</label>
+      <input type="text" name="description" id="description">
+
+      <label for="techs">Tech's</label>
+      <input type="text" name="techs" id="techs">
+
+      <div id="techsList">
+
+      </div>
+
+      <button id="addTech" type="button">Adicionar tech</button>
+
+      <label for="image_url">Image URL</label>
+      <input type="text" name="image_url" id="image_url">
+
+      <button type="submit" id="send">Cadastrar Projeto</button>
+   </form>
+   <script type="module" src="./app.js"></script>
+</body>
+</html>
