@@ -9,10 +9,10 @@
 <body>
    <form id="form" action="http://localhost:3000/projects" method="post">
       <label for="name">Project name</label>
-      <input type="text" name="name" id="name">
+      <input type="text" name="name" id="name" required>
 
       <label for="description">Project description</label>
-      <input type="text" name="description" id="description">
+      <input type="text" name="description" id="description" required>
 
       <label for="techs">Tech's</label>
       <input type="text" name="techs" id="techs">
@@ -24,10 +24,11 @@
       <button id="addTech" type="button">Adicionar tech</button>
 
       <label for="image_url">Image URL</label>
-      <input type="text" name="image_url" id="image_url">
+      <input type="text" name="image_url" id="image_url" required>
 
       <button type="submit" id="send">Cadastrar Projeto</button>
    </form>
+   <a href="./pages/projetos.html">Projetos</a>
    <script type="module" src="./app.js"></script>
 </body>
 </html>

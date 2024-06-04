@@ -7,7 +7,6 @@ export function addNewTech() {
 
    if (inputTech != "") {
       arrayTechs.push(inputTech)
-      console.log(arrayTechs)
 
       document.getElementById('techs').value = ""
 

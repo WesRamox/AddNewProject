@@ -1,3 +1,5 @@
+let projectsList = []
+
 function renderProjects(data) {
    const main = document.querySelector('#projetos')
 
@@ -17,20 +19,38 @@ function renderProjects(data) {
 
    const arrayTechs = data.techs
 
+   
    arrayTechs.forEach((tech) => {
       const techs = document.createElement('span')
       techs.textContent = tech
       techs.classList.add('techs')
-
+      
       techsbox.append(techs)
    })
 
+   const deleteBtn = createDeleteButton(data.id)
+   
    const imageProject = document.createElement('img')
    imageProject.src = data.image_url
    imageProject.classList.add('imageProject')
    
-   boxProject.append(name, description, techsbox, imageProject)
+   boxProject.append(name, description, techsbox, imageProject, deleteBtn)
    main.append(boxProject)
+}
+
+function createDeleteButton(id) {
+   const button = document.createElement('button')
+   button.classList.add('delete-btn')
+   button.textContent = 'Excluir'
+   button.id = `delete-${id}`
+   button.addEventListener('click', async () => {
+      await fetch(`http://localhost:3000/projects/${id}`, {
+         method: 'DELETE'
+      })
+      button.parentElement.remove()
+   })
+
+   return button
 }
 
 async function fetchProjects() {
@@ -40,6 +60,8 @@ async function fetchProjects() {
 async function execute() {
    const data = await fetchProjects()
    data.forEach(renderProjects)
+   projectsList.push(data)
 }
+
 
 document.addEventListener("DOMContentLoaded", execute)
